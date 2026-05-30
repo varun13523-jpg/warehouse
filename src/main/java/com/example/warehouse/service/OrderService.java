@@ -19,7 +19,8 @@ public class OrderService {
                 repository.findById(order.getItemId());
 
         if (item == null) {
-            return "ITEM NOT FOUND";
+            order.setStatus("ITEM_NOT_FOUND");
+            return order.getStatus();
         }
 
         synchronized (item) {

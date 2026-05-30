@@ -14,9 +14,10 @@ public class OrderController {
     private OrderService service;
 
     @PostMapping
-    public String placeOrder(
-            @RequestBody Order order) {
+    public Order placeOrder(@RequestBody Order order) {
 
-        return service.processOrder(order);
+        service.processOrder(order);
+
+        return order;
     }
 }
